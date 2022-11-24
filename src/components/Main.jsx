@@ -4,8 +4,166 @@ import './Main.css';
 import { MyContext } from '../App';
 
 function Main() {
-
     const { count, setCount, setName, name, names, setDay, day, setMonth, month, months, setYear, year, setPrice1, price1, price2, setPrice2 } = useContext(MyContext);
+
+    const getStrNumbsUpTo10 = (numberPrice1) => {
+        if (numberPrice1.length === 1) {
+            switch (numberPrice1) {
+                case '1':
+                    return `Одна`;
+                case '2':
+                    return `Дві`;
+                case '3':
+                    return `Три`;
+                case '4':
+                    return `Чотири`;
+                case '5':
+                    return `П'ять`;
+                case '6':
+                    return `Шість`;
+                case '7':
+                    return `Сім`;
+                case '8':
+                    return `Вісім`;
+                case '9':
+                    return `Дев'ять`;
+                default:
+                    return ``;
+            }
+        }
+    }
+    const getStrNumbsUpTo100 = (numberPrice1) => {
+        if (numberPrice1.length === 1) {
+            switch (numberPrice1) {
+                case '1':
+                    return `Десять`;
+                case '2':
+                    return `Двадцять`;
+                case '3':
+                    return `Тридцять`;
+                case '4':
+                    return `Сорок`;
+                case '5':
+                    return `П'ятдесят`;
+                case '6':
+                    return `Шістдесят`;
+                case '7':
+                    return `Сімдесят`;
+                case '8':
+                    return `Вісімдесят`;
+                case '9':
+                    return `Дев'яносто`;
+                default:
+                    return ``;
+            }
+        }
+    }
+    const getStrNumbsUpTo1000 = (numberPrice1) => {
+        if (numberPrice1.length === 1) {
+            switch (numberPrice1) {
+                case '1':
+                    return `Сто`;
+                case '2':
+                    return `Двісті`;
+                case '3':
+                    return `Триста`;
+                case '4':
+                    return `Чотириста`;
+                case '5':
+                    return `П'ятсот`;
+                case '6':
+                    return `Шістсот`;
+                case '7':
+                    return `Сімсот`;
+                case '8':
+                    return `Вісімсот`;
+                case '9':
+                    return `Дев'ятсот`;
+                default:
+                    return ``;
+            }
+        }
+    }
+
+
+    const numberInString = (numberPrice1) => {
+        if (!numberPrice1) {
+            return `Нуль грн. ${price2} коп.`;
+        }
+        if (numberPrice1.length === 1) {
+            switch (numberPrice1) {
+                case '1':
+                    return `Одна грн. ${price2} коп.`;
+                case '2':
+                    return `Дві грн. ${price2} коп.`;
+                case '3':
+                    return `Три грн. ${price2} коп.`;
+                case '4':
+                    return `Чотири грн. ${price2} коп.`;
+                case '5':
+                    return `П'ять грн. ${price2} коп.`;
+                case '6':
+                    return `Шість грн. ${price2} коп.`;
+                case '7':
+                    return `Сім грн. ${price2} коп.`;
+                case '8':
+                    return `Вісім грн. ${price2} коп.`;
+                case '9':
+                    return `Дев'ять грн. ${price2} коп.`;
+                default:
+                    return `Нуль грн. ${price2} коп.`;
+            }
+        }
+        if (numberPrice1.length === 2 && numberPrice1[0] === '1') {
+            switch (numberPrice1) {
+                case '10':
+                    return `Одинадцять грн. ${price2} коп.`;
+                case '11':
+                    return `Одинадцять грн. ${price2} коп.`;
+                case '12':
+                    return `Дванадцять грн. ${price2} коп.`;
+                case '13':
+                    return `Тринадцять грн. ${price2} коп.`;
+                case '14':
+                    return `Чотирнадцять грн. ${price2} коп.`;
+                case '15':
+                    return `П'ятнадцять грн. ${price2} коп.`;
+                case '16':
+                    return `Шістнадцять грн. ${price2} коп.`;
+                case '17':
+                    return `Сімнадцять грн. ${price2} коп.`;
+                case '18':
+                    return `Вісімнадцять грн. ${price2} коп.`;
+                case '19':
+                    return `Дев'ятнадцять грн. ${price2} коп.`;
+                default:
+                    return `Нуль грн. ${price2} коп.`;
+            }
+        }
+        if (numberPrice1.length === 2) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}`:
+                    return `${getStrNumbsUpTo100(numberPrice1[0])} 
+                    ${(getStrNumbsUpTo10(numberPrice1[1]).toLowerCase())} 
+                    грн.${price2} коп.`;
+                default:
+                    return `Двадцять грн.${price2} коп.`;
+            }
+        }
+        if (numberPrice1.length === 3) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}`:
+                    return `${getStrNumbsUpTo1000(numberPrice1[0])} 
+                    ${(getStrNumbsUpTo100(numberPrice1[1]).toLowerCase())} 
+                    ${(getStrNumbsUpTo10(numberPrice1[2]).toLowerCase())} 
+                    грн.${price2} коп.`;
+                default:
+                    return `Двадцять грн.${price2} коп.`;
+            }
+        }
+
+    }
+
     return (
         <>
             <div className="flex">
@@ -44,7 +202,7 @@ function Main() {
             <div className="text">
                 <p>Ми, що нижче підписались представники Замовника {name} , з однієї сторони, і представник Виконавця .</p>
                 <p>Приватний підприємець Севастьянов О.В, з другої сторони, склали справжній акт про те, що Виконавцем були проведені</p>
-                <p>наступні роботи (надання таких послуг) за рахунком №{count} від {day} {month} {year}
+                <p>наступні роботи (надання таких послуг) за рахунком №{count} від "{day}" {month} {year}
 
                     р.:
                     <br />
@@ -72,27 +230,30 @@ function Main() {
                     </div>
                 </div>
                 <br />
-                <p>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.</p>
+                <p>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.({numberInString(price1)})</p>
+
+                <br />
                 <p>ПДВ 0.00 грн.</p>
                 <p>Сторони претензій одна до одної не мають.</p>
             </div>
 
+            <br /><br />
 
             <div className="flex">
                 <div className="col-1">
                     <p>Від Виконавця:</p>
                     <br />
                     <p>____________________________</p>
-                    <p>{day}</p>
+                    <p>"{day}" {month} {year}</p>
                     <p>Приватний підприємець</p>
                     <p>Севастьянов О.В.</p>
                 </div>
                 <div className="col-2">
-                    <p>Від Виконавця:</p>
+                    <p>Від Замовника:</p>
                     <br />
                     <p>____________________________</p>
-                    <p>Приватний підприємець</p>
-                    <p>Севастьянов О.В.</p>
+                    <p>"{day}" {month} {year}</p>
+                    <p>{name}</p>
                 </div>
 
             </div>
@@ -100,4 +261,6 @@ function Main() {
     )
 }
 
-export default Main
+
+
+export default Main;
