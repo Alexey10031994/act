@@ -32,6 +32,34 @@ function Main() {
             }
         }
     }
+    const getStrNumbsUpTo20 = (numberPrice1) => {
+        if (numberPrice1.length === 2) {
+            switch (numberPrice1) {
+                case '10':
+                    return `Десять`;
+                case '11':
+                    return `Одинадцять`;
+                case '12':
+                    return `Дванадцять`;
+                case '13':
+                    return `Тринадцять`;
+                case '14':
+                    return `Чотирнадцять`;
+                case '15':
+                    return `П'ятнадцять`;
+                case '16':
+                    return `Шістнадцять`;
+                case '17':
+                    return `Сімнадцять`;
+                case '18':
+                    return `Вісімнадцять`;
+                case '19':
+                    return `Дев'ятнадцять`;
+                default:
+                    return ``;
+            }
+        }
+    }
     const getStrNumbsUpTo100 = (numberPrice1) => {
         if (numberPrice1.length === 1) {
             switch (numberPrice1) {
@@ -84,6 +112,58 @@ function Main() {
             }
         }
     }
+    const getStrNumbsUpTo10000 = (numberPrice1) => {
+        if (numberPrice1.length === 1) {
+            switch (numberPrice1) {
+                case '1':
+                    return `Одна тисяча`;
+                case '2':
+                    return `Дві тисячі`;
+                case '3':
+                    return `Три тисячі`;
+                case '4':
+                    return `Чотири тисячі`;
+                case '5':
+                    return `П'ять тисяч`;
+                case '6':
+                    return `Шість тисяч`;
+                case '7':
+                    return `Сім тисяч`;
+                case '8':
+                    return `Вісім тисяч`;
+                case '9':
+                    return `Дев'ять тисяч`;
+                default:
+                    return ``;
+            }
+        }
+    }
+    // const getStrNumbsUpTo100000 = (numberPrice1) => {
+    //     if (numberPrice1.length === 1) {
+    //         switch (numberPrice1) {
+    //             case '1':
+    //                 return `Десять тисяч`;
+    //             case '2':
+    //                 return `Двадцять тисяч`;
+    //             case '3':
+    //                 return `Тридцять тисяч`;
+    //             case '4':
+    //                 return `Сорок тисяч`;
+    //             case '5':
+    //                 return `П'ятдесят тисяч`;
+    //             case '6':
+    //                 return `Шістдесят тисяч`;
+    //             case '7':
+    //                 return `Сімдесят тисяч`;
+    //             case '8':
+    //                 return `Вісімдесят тисяч`;
+    //             case '9':
+    //                 return `Дев'яносто тисяч`;
+    //             default:
+    //                 return ``;
+    //         }
+    //     }
+    // }
 
 
     const numberInString = (numberPrice1) => {
@@ -117,7 +197,7 @@ function Main() {
         if (numberPrice1.length === 2 && numberPrice1[0] === '1') {
             switch (numberPrice1) {
                 case '10':
-                    return `Одинадцять грн. ${price2} коп.`;
+                    return `Десять грн. ${price2} коп.`;
                 case '11':
                     return `Одинадцять грн. ${price2} коп.`;
                 case '12':
@@ -156,6 +236,34 @@ function Main() {
                     return `${getStrNumbsUpTo1000(numberPrice1[0])} 
                     ${(getStrNumbsUpTo100(numberPrice1[1]).toLowerCase())} 
                     ${(getStrNumbsUpTo10(numberPrice1[2]).toLowerCase())} 
+                    грн.${price2} коп.`;
+                default:
+                    return `Двадцять грн.${price2} коп.`;
+            }
+        }
+        if (numberPrice1.length === 4) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}`:
+                    return `${getStrNumbsUpTo10000(numberPrice1[0])} 
+                    ${(getStrNumbsUpTo1000(numberPrice1[1]).toLowerCase())} 
+                    ${(getStrNumbsUpTo100(numberPrice1[2]).toLowerCase())} 
+                    ${(getStrNumbsUpTo10(numberPrice1[3]).toLowerCase())} 
+                    грн.${price2} коп.`;
+                default:
+                    return `Двадцять грн.${price2} коп.`;
+            }
+        }
+        if (numberPrice1.length === 5) {
+
+            console.log(`${numberPrice1[0]}${numberPrice1[1]}`);
+            switch (numberPrice1) {
+
+
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
+                    return `${getStrNumbsUpTo20(`${numberPrice1[0]}${numberPrice1[1]}`)} тисяч 
+                    ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
+                    ${(getStrNumbsUpTo100(numberPrice1[3]).toLowerCase())} 
+                    ${(getStrNumbsUpTo10(numberPrice1[4]).toLowerCase())} 
                     грн.${price2} коп.`;
                 default:
                     return `Двадцять грн.${price2} коп.`;
