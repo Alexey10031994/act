@@ -196,7 +196,7 @@ select {
 
 
 /*______________________________________________________________ MEDIA */
-@media(max-width: 380px) {
+@media(max-width: 450px) {
     input {
         background-color: rgb(255, 255, 140);
     }
