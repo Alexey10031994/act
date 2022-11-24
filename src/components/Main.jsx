@@ -93,7 +93,6 @@ function Main() {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}`:
                     return `${getStrNumbsUpTo1000(numberPrice1[0])} 
                     ${(getStrNumbsUpTo20(`${numberPrice1[1]}${numberPrice1[2]}`).toLowerCase())} 
-                   
                     грн.${price2} коп.`;
                 default:
                     return ``;
@@ -134,7 +133,18 @@ function Main() {
                     return ``;
             }
         }
-        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1') && !(numberPrice1[3] === '1')) {
+        if (numberPrice1.length === 5 &&
+            !(numberPrice1[0] === '1') &&
+            !(numberPrice1[3] === '1') &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '11' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '12' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '13' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '14' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '15' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '16' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '17' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '18' &&
+            `${numberPrice1[0]}${numberPrice1[1]}` === '19') {
             switch (numberPrice1) {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
                     return `${getStrNumbsUpTo100(numberPrice1[0])}
