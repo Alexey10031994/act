@@ -15,6 +15,7 @@ function App() {
   const [day, setDay] = useState(1);
   const [month, setMonth] = useState('Січня');
   const [year, setYear] = useState(2022);
+  const [nav, setNav] = useState('м.Дніпро');
 
 
 
@@ -25,7 +26,7 @@ function App() {
   return (
 
 
-    <MyContext.Provider value={{ count, setCount, months, names, month, name, price1, price2, day, year, setName, setMonth, setYear, setDay, setPrice1, setPrice2 }}>
+    <MyContext.Provider value={{ count, setCount, months, names, month, name, price1, price2, day, year, setName, setMonth, setYear, setDay, setPrice1, setPrice2, nav, setNav }}>
       <div className="App">
         <div className="container">
           <Main />

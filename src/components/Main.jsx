@@ -6,7 +6,7 @@ import { getStrNumbsUpTo10, getStrNumbsUpTo20, getStrNumbsUpTo100, getStrNumbsUp
 import { MyContext } from '../App';
 
 function Main() {
-    const { count, setCount, setName, name, names, setDay, day, setMonth, month, months, setYear, year, setPrice1, price1, price2, setPrice2 } = useContext(MyContext);
+    const { count, setCount, setName, name, names, setDay, day, setMonth, month, months, setYear, year, setPrice1, price1, price2, setPrice2, nav, setNav } = useContext(MyContext);
 
     const numberInString = (numberPrice1) => {
 
@@ -240,7 +240,7 @@ function Main() {
                 </p>
                 <p>Послуги перевезення вантажу:</p>
                 <div className="flex">
-                    <input className='route' type="text" />
+                    <input value={nav} onChange={(e) => setNav(e.target.value)} className='route' type="text" />
                     <div className="col-2a">
                         <p><input onChange={(e) => setPrice1(e.target.value)} value={price1} className='price-1' type="number" />,<input onChange={(e) => setPrice2(e.target.value)} value={price2} className='price-2' type="number" />грн(без ПДВ 20%)</p>
                     </div>
@@ -273,6 +273,8 @@ function Main() {
                 </div>
 
             </div>
+
+            <button onClick={() => window.print()} className='btn'>Друкувати</button>
         </>
     )
 }
