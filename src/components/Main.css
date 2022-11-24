@@ -193,3 +193,331 @@ select {
         display: none;
     }
 }
+
+
+/*______________________________________________________________ MEDIA */
+@media(max-width: 400px) {
+    input {
+        background-color: rgb(255, 255, 140);
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 26px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0;
+
+        padding: 0;
+        font-size: 36px;
+    }
+
+    select {
+        background-color: rgb(255, 255, 140);
+        font-size: 26px;
+    }
+
+    .head {
+        margin-bottom: 50px;
+    }
+
+    .foot {
+        position: absolute;
+        margin-top: 20px;
+        bottom: 90px;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+
+    .col-1 {
+        position: relative;
+        padding-left: 20mm;
+        width: 50%;
+        height: 300px;
+    }
+
+    .col-2 {
+        margin-bottom: 10mm;
+        position: relative;
+        padding-right: 0mm;
+
+
+        width: 50%;
+        height: 300px;
+
+    }
+
+    .col-2a {
+        padding-right: 0mm;
+    }
+
+    .text {
+        padding-top: 10mm;
+        padding-left: 10mm;
+    }
+
+    .count {
+        padding: 0;
+        margin: 0;
+        margin-left: 8mm;
+        font-size: 26px;
+        line-height: unset;
+        text-align: center;
+
+
+        width: 80px;
+    }
+
+    .data {
+        padding: 0;
+        margin: 0 10mm;
+
+        font-size: 26px;
+        line-height: unset;
+        text-align: center;
+        width: 80px;
+    }
+
+    .year {
+        padding: 0;
+        margin: 20px 10mm;
+
+        font-size: 26px;
+        line-height: unset;
+
+        text-align: center;
+        width: 40mm;
+    }
+
+    .route {
+        padding: 4px;
+
+        margin: 20px 0;
+        margin-right: 20px;
+        font-size: 26px;
+        width: 100mm;
+    }
+
+    .price-1 {
+
+        padding: 0;
+        margin: 20px 0;
+        margin-right: 10px;
+        font-size: 26px;
+        line-height: unset;
+        text-align: center;
+
+        width: 80px;
+    }
+
+    .price-2 {
+        padding: 0;
+        margin: 20px 0;
+        margin-left: 10px;
+        font-size: 26px;
+        line-height: unset;
+
+        text-align: center;
+
+        width: 80px;
+    }
+
+    .btn {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+
+        cursor: pointer;
+        font-size: 26px;
+    }
+
+
+
+
+    @media print {
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+
+            padding: 0;
+            font-size: 16px;
+        }
+
+        select {
+            font-size: 12px;
+        }
+
+        .head {
+            margin-bottom: 20px;
+        }
+
+        .foot {
+            position: absolute;
+            margin-top: 20px;
+            bottom: 0px;
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        .col-1 {
+            position: relative;
+            padding-left: 20mm;
+            width: 140px;
+            height: 100px;
+        }
+
+        .col-2 {
+            margin-bottom: 10mm;
+            position: relative;
+            padding-right: 20mm;
+
+            width: 140px;
+            height: 100px;
+
+        }
+
+        .col-2a {
+            padding-right: 20mm;
+        }
+
+        .text {
+            padding-top: 10mm;
+            padding-left: 20mm;
+        }
+
+        .count {
+            padding: 0;
+            margin: 0;
+            margin-left: 80mm;
+            font-size: 12px;
+            line-height: unset;
+
+
+            width: 7mm;
+        }
+
+        .data {
+            padding: 0;
+            margin: 0;
+            margin-left: 3mm;
+            font-size: 12px;
+            line-height: unset;
+            text-align: center;
+            width: 4mm;
+        }
+
+        .year {
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            line-height: unset;
+
+            text-align: right;
+            width: 7mm;
+        }
+
+        .route {
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            width: 100mm;
+        }
+
+        .price-1 {
+
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            line-height: unset;
+
+            text-align: right;
+            width: 11mm;
+        }
+
+        .price-2 {
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            line-height: unset;
+
+            text-align: left;
+            width: 4mm;
+        }
+
+        .btn {
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+
+
+
+        select {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            position: relative;
+            outline: none;
+            padding: 0px;
+            padding-right: 40px;
+            text-align: left;
+        }
+
+        select:after {
+            content: "";
+            display: block;
+            width: 25px;
+            height: 25px;
+
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+
+        input {
+            border: unset;
+
+        }
+
+        .count {
+            display: none;
+        }
+
+        .month {
+            /* opacity: 0; */
+            display: none;
+        }
+
+        .data {
+            display: none;
+        }
+
+        .year {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+    }
+}
