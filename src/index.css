@@ -20,7 +20,7 @@ code {
   }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 380px) {
   body {
     background-color: rgb(255, 255, 255);
   }
