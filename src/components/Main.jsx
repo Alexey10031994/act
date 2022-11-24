@@ -77,7 +77,7 @@ function Main() {
                     return ``;
             }
         }
-        if (numberPrice1.length === 3) {
+        if (numberPrice1.length === 3 && !(numberPrice1[1] === '1')) {
             switch (numberPrice1) {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}`:
                     return `${getStrNumbsUpTo1000(numberPrice1[0])} 
@@ -88,7 +88,18 @@ function Main() {
                     return ``;
             }
         }
-        if (numberPrice1.length === 4) {
+        if (numberPrice1.length === 3) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}`:
+                    return `${getStrNumbsUpTo1000(numberPrice1[0])} 
+                    ${(getStrNumbsUpTo20(`${numberPrice1[1]}${numberPrice1[2]}`).toLowerCase())} 
+                   
+                    грн.${price2} коп.`;
+                default:
+                    return ``;
+            }
+        }
+        if (numberPrice1.length === 4 && !(numberPrice1[2] === '1')) {
             switch (numberPrice1) {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}`:
                     return `${getStrNumbsUpTo10000(numberPrice1[0])} 
@@ -100,7 +111,18 @@ function Main() {
                     return ``;
             }
         }
-        if (numberPrice1.length === 5 && numberPrice1[0] === '1') {
+        if (numberPrice1.length === 4) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}`:
+                    return `${getStrNumbsUpTo10000(numberPrice1[0])} 
+                    ${(getStrNumbsUpTo1000(numberPrice1[1]).toLowerCase())} 
+                    ${(getStrNumbsUpTo20(`${numberPrice1[2]}${numberPrice1[3]}`).toLowerCase())} 
+                    грн.${price2} коп.`;
+                default:
+                    return ``;
+            }
+        }
+        if (numberPrice1.length === 5 && numberPrice1[0] === '1' && !(numberPrice1[3] === '1')) {
             switch (numberPrice1) {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
                     return `${getStrNumbsUpTo20(`${numberPrice1[0]}${numberPrice1[1]}`)} тисяч 
@@ -112,7 +134,7 @@ function Main() {
                     return ``;
             }
         }
-        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1')) {
+        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1') && !(numberPrice1[3] === '1')) {
             switch (numberPrice1) {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
                     return `${getStrNumbsUpTo100(numberPrice1[0])}
@@ -122,7 +144,30 @@ function Main() {
                     ${(getStrNumbsUpTo10(numberPrice1[4]).toLowerCase())} 
                 грн.${price2} коп.`;
                 default:
-                    return `ERROR`;
+                    return ``;
+            }
+        }
+        if (numberPrice1.length === 5 && numberPrice1[0] === '1') {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
+                    return `${getStrNumbsUpTo20(`${numberPrice1[0]}${numberPrice1[1]}`)} тисяч 
+                    ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
+                    ${(getStrNumbsUpTo20(`${numberPrice1[3]}${numberPrice1[4]}`).toLowerCase())} 
+                    грн.${price2} коп.`;
+                default:
+                    return ``;
+            }
+        }
+        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1')) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
+                    return `${getStrNumbsUpTo100(numberPrice1[0])}
+                    ${(getStrNumbsUpTo10(numberPrice1[1]).toLowerCase())} тисяч
+                    ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
+                    ${(getStrNumbsUpTo20(`${numberPrice1[3]}${numberPrice1[4]}`).toLowerCase())} 
+                грн.${price2} коп.`;
+                default:
+                    return ``;
             }
         }
 
