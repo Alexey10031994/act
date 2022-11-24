@@ -253,12 +253,8 @@ function Main() {
                     return `Двадцять грн.${price2} коп.`;
             }
         }
-        if (numberPrice1.length === 5) {
-
-            console.log(`${numberPrice1[0]}${numberPrice1[1]}`);
+        if (numberPrice1.length === 5 && numberPrice1[0] === '1') {
             switch (numberPrice1) {
-
-
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
                     return `${getStrNumbsUpTo20(`${numberPrice1[0]}${numberPrice1[1]}`)} тисяч 
                     ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
@@ -269,6 +265,20 @@ function Main() {
                     return `Двадцять грн.${price2} коп.`;
             }
         }
+        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1')) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
+                    return `${getStrNumbsUpTo100(numberPrice1[0])}
+                    ${(getStrNumbsUpTo10(numberPrice1[1]).toLowerCase())} тисячі
+                    ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
+                    ${(getStrNumbsUpTo100(numberPrice1[3]).toLowerCase())} 
+                    ${(getStrNumbsUpTo10(numberPrice1[4]).toLowerCase())} 
+                грн.${price2} коп.`;
+                default:
+                    return `Двадцять грн.${price2} коп.`;
+            }
+        }
+
 
     }
 
