@@ -8,7 +8,7 @@ select {
     -webkit-appearance: none;
     /* border: none; */
     padding: 1.3px 0;
-    text-align: left;
+    text-align: center;
 
 
 
@@ -151,8 +151,9 @@ select {
         border: none;
         position: relative;
         outline: none;
-        padding: 5px;
+        padding: 0px;
         padding-right: 40px;
+        text-align: left;
     }
 
     select:after {
@@ -162,8 +163,8 @@ select {
         height: 25px;
 
         position: absolute;
-        right: 5px;
-        top: 5px;
+        right: 0px;
+        top: 0px;
     }
 
     input {
