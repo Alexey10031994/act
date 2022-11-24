@@ -168,13 +168,37 @@ function Main() {
                     return ``;
             }
         }
-        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1')) {
+        if (numberPrice1.length === 5 &&
+            !(numberPrice1[0] === '1') &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '11' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '12' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '13' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '14' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '15' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '16' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '17' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '18' &&
+            `${numberPrice1[3]}${numberPrice1[4]}` === '19') {
             switch (numberPrice1) {
                 case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
                     return `${getStrNumbsUpTo100(numberPrice1[0])}
                     ${(getStrNumbsUpTo10(numberPrice1[1]).toLowerCase())} тисяч
                     ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
                     ${(getStrNumbsUpTo20(`${numberPrice1[3]}${numberPrice1[4]}`).toLowerCase())} 
+                грн.${price2} коп.`;
+                default:
+                    return ``;
+            }
+        }
+        if (numberPrice1.length === 5 && !(numberPrice1[0] === '1')) {
+            switch (numberPrice1) {
+                case `${numberPrice1[0]}${numberPrice1[1]}${numberPrice1[2]}${numberPrice1[3]}${numberPrice1[4]}`:
+                    return `${getStrNumbsUpTo100(numberPrice1[0])}
+                    ${(getStrNumbsUpTo10(numberPrice1[1]).toLowerCase())} тисяч
+                    ${(getStrNumbsUpTo1000(numberPrice1[2]).toLowerCase())} 
+                    ${(getStrNumbsUpTo100(numberPrice1[3]).toLowerCase())} 
+                    ${(getStrNumbsUpTo10(numberPrice1[4]).toLowerCase())} 
+                  
                 грн.${price2} коп.`;
                 default:
                     return ``;
