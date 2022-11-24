@@ -40,7 +40,7 @@ select {
 .foot {
     position: absolute;
     margin-top: 20px;
-    bottom: 0;
+    bottom: 0px;
 }
 
 .flex {
@@ -58,7 +58,7 @@ select {
 }
 
 .col-2 {
-    margin-bottom: 15mm;
+    margin-bottom: 10mm;
     position: relative;
     padding-right: 20mm;
 
@@ -148,8 +148,6 @@ select {
         outline: none;
         padding: 5px;
         padding-right: 40px;
-
-
     }
 
     select:after {
