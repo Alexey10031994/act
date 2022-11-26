@@ -12,7 +12,7 @@ function Main() {
     // let text = '';
 
 
-    const [text, setText] = useState(`грн. коп.`);
+    const [text, setText] = useState(``);
 
     const [activeEdit, setActivEdit] = useState(true);
     const [activeInputEdit, setInputActivEdit] = useState(true);
