@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Main.css';
 
 import { getStrNumbsUpTo10, getStrNumbsUpTo20, getStrNumbsUpTo100, getStrNumbsUpTo1000, getStrNumbsUpTo10000 } from '../getStringNumbsUpTo.js';
@@ -6,6 +6,8 @@ import { getStrNumbsUpTo10, getStrNumbsUpTo20, getStrNumbsUpTo100, getStrNumbsUp
 import { MyContext } from '../App';
 
 function Main() {
+
+
 
     // let text = '';
 
@@ -329,7 +331,7 @@ function Main() {
 
                             <img onClick={() => setActivEdit(!activeEdit)} className='edit' src="./icon/close.png" alt="edit" width={16} />
                         </p>
-                        <input className='input100' onChange={(e) => setText(e.target.value)} value={text} type="text" />
+                        <input onClick={() => setText(numberInString(price1).replace(/\s+/g, ' ').trim())} className='input100' onChange={(e) => setText(e.target.value)} value={text} type="text" />
                     </>}
 
 
