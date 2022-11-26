@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Main.css';
 
 import { getStrNumbsUpTo10, getStrNumbsUpTo20, getStrNumbsUpTo100, getStrNumbsUpTo1000, getStrNumbsUpTo10000 } from '../getStringNumbsUpTo.js';
@@ -6,15 +6,28 @@ import { getStrNumbsUpTo10, getStrNumbsUpTo20, getStrNumbsUpTo100, getStrNumbsUp
 import { MyContext } from '../App';
 
 function Main() {
+
+    // let text = '';
+
+
+    const [text, setText] = useState(`грн. коп.`);
+
+    const [activeEdit, setActivEdit] = useState(true);
+    const [activeInputEdit, setInputActivEdit] = useState(true);
     const { count, setCount, setName, name, names, setDay, day, setMonth, month, months, setYear, year, setPrice1, price1, price2, setPrice2, nav, setNav } = useContext(MyContext);
 
     const numberInString = (numberPrice1) => {
 
+
+
         if (numberPrice1.length > 5 || numberPrice1 === '00' || numberPrice1 === '000' || numberPrice1 === '0000' || numberPrice1 === '00000') {
+
             return `Вивели більше 5 цифр або поставили 0 на початку рядка!`;
+
         }
 
         if (!numberPrice1 || numberPrice1 === '0') {
+
             return `Введіть значення. ${price2} коп.`;
         }
         if (numberPrice1.length === 1) {
@@ -204,12 +217,13 @@ function Main() {
                     return ``;
             }
         }
-
-
-
-
-
     }
+
+    const editText = (price) => {
+        setActivEdit(!activeEdit);
+        setText(numberInString(price));
+    }
+
 
 
 
@@ -229,17 +243,36 @@ function Main() {
                 <div className="col-2">
                     <p className='head'>Затверджую</p>
 
-                    <select
-                        name="name"
-                        onChange={(e) => setName(e.target.value)}
-                        id={name}
-                        value={name} >
-                        {
-                            names.map((item, key) => (
-                                <option key={key} value={item}>{item}</option>
-                            ))
-                        }
-                    </select>
+                    {
+                        activeInputEdit ?
+                            <div className='edit-name'>
+                                <select
+                                    className='name'
+                                    name="name"
+                                    onChange={(e) => setName(e.target.value)}
+                                    id={name}
+                                    value={name} >
+                                    {
+                                        names.map((item, key) => (
+                                            <option key={key} value={item}>{item}</option>
+                                        ))
+                                    }
+
+                                </select>
+                                <img onClick={() => setInputActivEdit(!activeInputEdit)} className='edit-img__name' src="./icon/editing.png" alt="edit" width={16} />
+
+                            </div> :
+                            <div className='edit-name'>
+                                <input className='name' type="text" onChange={(e) => setName(e.target.value)} value={name} />
+                                <img onClick={() => setInputActivEdit(!activeInputEdit)} className='edit-img__name' src="./icon/close.png" alt="edit" width={16} />
+                            </div>
+
+                    }
+
+
+
+
+
 
 
                     <p className='foot'>____________________________</p>
@@ -276,11 +309,37 @@ function Main() {
                 <div className="flex">
                     <input value={nav} onChange={(e) => setNav(e.target.value)} className='route' type="text" />
                     <div className="col-2a">
-                        <p><input onChange={(e) => setPrice1(e.target.value)} value={price1} className='price-1' type="number" />,<input onChange={(e) => setPrice2(e.target.value)} value={price2} className='price-2' type="number" />грн(без ПДВ 20%)</p>
+                        <p>
+                            <input onChange={(e) => setPrice1(e.target.value)} value={price1} className='price-1' type="number" />,
+                            <input onChange={(e) => setPrice2(e.target.value)} value={price2} className='price-2' type="number" />
+                            грн(без ПДВ 20%)
+                        </p>
                     </div>
                 </div>
                 <br />
-                <p>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.({numberInString(price1)})</p>
+
+
+                {/* {numberInString(price1, setText, text)} */}
+                {activeEdit ?
+                    <p className='edit-text'>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.({numberInString(price1)})
+                        <img onClick={() => setActivEdit(!activeEdit)} className='edit' src="./icon/editing.png" alt="edit" width={16} />
+                    </p> :
+                    <>
+                        <p className='edit-text'>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.({text})
+
+                            <img onClick={() => setActivEdit(!activeEdit)} className='edit' src="./icon/close.png" alt="edit" width={16} />
+                        </p>
+                        <input className='input100' onChange={(e) => setText(e.target.value)} value={text} type="text" />
+                    </>}
+
+
+
+
+
+
+
+
+
 
                 <br />
                 <p>ПДВ 0.00 грн.</p>

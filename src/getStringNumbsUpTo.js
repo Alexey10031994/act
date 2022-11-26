@@ -47,22 +47,6 @@ export const getStrNumbsUpTo20 = (numberPrice1) => {
                 return `Вісімнадцять`;
             case '19':
                 return `Дев'ятнадцять`;
-            // case '20':
-            //     return `Двадцять`;
-            // case '30':
-            //     return `Тридцять`;
-            // case '40':
-            //     return `Сорок`;
-            // case '50':
-            //     return `П'ятдесят`;
-            // case '60':
-            //     return `Шістдесят`;
-            // case '70':
-            //     return `Сімдесят`;
-            // case '80':
-            //     return `Вісімдесят`;
-            // case '90':
-            //     return `Дев'яносто`;
             default:
                 return ``;
         }
