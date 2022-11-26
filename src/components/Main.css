@@ -257,6 +257,10 @@ select {
     .input100 {
         display: none;
     }
+
+    .name {
+        text-align: left;
+    }
 }
 
 

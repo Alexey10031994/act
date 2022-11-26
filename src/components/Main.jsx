@@ -11,7 +11,7 @@ function Main() {
 
     // let text = '';
 
-
+    const [items, setItems] = useState([]);
     const [text, setText] = useState(``);
 
     const [activeEdit, setActivEdit] = useState(true);
@@ -221,10 +221,16 @@ function Main() {
         }
     }
 
-    const editText = (price) => {
-        setActivEdit(!activeEdit);
-        setText(numberInString(price));
-    }
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(items));
+    }, [items]);
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('items'));
+        if (items) {
+         setItems(items);
+        }
+      }, []);
 
 
 
@@ -326,13 +332,15 @@ function Main() {
                     <p className='edit-text'>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.({numberInString(price1)})
                         <img onClick={() => setActivEdit(!activeEdit)} className='edit' src="./icon/editing.png" alt="edit" width={16} />
                     </p> :
+
                     <>
                         <p className='edit-text'>Загальна вартість робіт (послуги) склала без ПДВ {price1}грн. {price2}коп.({text})
 
                             <img onClick={() => setActivEdit(!activeEdit)} className='edit' src="./icon/close.png" alt="edit" width={16} />
                         </p>
                         <input onClick={() => setText(numberInString(price1).replace(/\s+/g, ' ').trim())} className='input100' onChange={(e) => setText(e.target.value)} value={text} type="text" />
-                    </>}
+                    </>
+                }
 
 
 
