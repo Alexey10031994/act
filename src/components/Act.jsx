@@ -1,22 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './Main.css';
+import './Act.css';
 
 import { getStrNumbsUpTo10, getStrNumbsUpTo20, getStrNumbsUpTo100, getStrNumbsUpTo1000, getStrNumbsUpTo10000 } from '../getStringNumbsUpTo.js';
 
 import { MyContext } from '../App';
 
-function Main() {
+function Act() {
 
-
-
-    // let text = '';
+    const { count, setCount, setName, name, names, setNames, setDay, day, setMonth, month, months, setYear, year, setPrice1, price1, price2, setPrice2, nav, setNav, order, setOrder, activeEdit, setActivEdit, activeInputEdit, setInputActivEdit } = useContext(MyContext);
 
     const [items, setItems] = useState([]);
     const [text, setText] = useState(``);
-
-    const [activeEdit, setActivEdit] = useState(true);
-    const [activeInputEdit, setInputActivEdit] = useState(true);
-    const { count, setCount, setName, name, names, setDay, day, setMonth, month, months, setYear, year, setPrice1, price1, price2, setPrice2, nav, setNav } = useContext(MyContext);
 
     const numberInString = (numberPrice1) => {
 
@@ -220,21 +214,32 @@ function Main() {
             }
         }
     }
+    // useEffect(() => {
+    // }, [names])
+    
+    const addItemToArrNames = () => {
+        let newId = names[names.length - 1].id + 1;
+        console.log(newId);
 
-    useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(items));
-    }, [items]);
+        setNames([...names, { name: name, id: newId }]);
 
-    useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('items'));
-        if (items) {
-         setItems(items);
+        alert(`Ви добавили нову назву ${name}`);
+        setInputActivEdit(!activeInputEdit);
+        setOrder([...order, { name: name, id: newId }]);
+    }
+
+    const removeItemInArrNames = (name) => {
+        if (names.length > 1 && (names !== '?' || names !== 'ПП "НПФ СВК"' || names === 'ТОВ ВКФ "Інватех"')) {
+            const objDelete = names.find(item => item.name === name);
+            const objFilter = names.filter(item => item !== objDelete);
+            setNames(objFilter);
+            alert(`Ви видалили назву ${name}`);
+
+            console.log(objDelete, objFilter);
         }
-      }, []);
 
 
-
-
+    }
 
     return (
         <>
@@ -256,23 +261,49 @@ function Main() {
                             <div className='edit-name'>
                                 <select
                                     className='name'
+                                    value={name}
                                     name="name"
                                     onChange={(e) => setName(e.target.value)}
-                                    id={name}
-                                    value={name} >
+
+                                >
                                     {
-                                        names.map((item, key) => (
-                                            <option key={key} value={item}>{item}</option>
+                                        names.map((item) => (
+                                            <option key={item.id} value={item.name}>{item.name}</option>
                                         ))
                                     }
 
                                 </select>
-                                <img onClick={() => setInputActivEdit(!activeInputEdit)} className='edit-img__name' src="./icon/editing.png" alt="edit" width={16} />
+                                <img
+                                    onClick={() => removeItemInArrNames(name)}
+                                    src="./icon/delete.png"
+                                    alt="del"
+                                    width={19}
+                                    className='edit-img__name-1'
+                                />
+                                <img
+                                    onClick={() => setInputActivEdit(!activeInputEdit)}
+                                    className='edit-img__name'
+                                    src="./icon/editing.png"
+                                    alt="edit"
+                                    width={16} />
 
                             </div> :
                             <div className='edit-name'>
                                 <input className='name' type="text" onChange={(e) => setName(e.target.value)} value={name} />
-                                <img onClick={() => setInputActivEdit(!activeInputEdit)} className='edit-img__name' src="./icon/close.png" alt="edit" width={16} />
+                                <img
+                                    onClick={() => addItemToArrNames(name)}
+                                    src="./icon/accept.png"
+                                    alt="accept"
+                                    width={20}
+                                    className='edit-img__name-1'
+                                />
+
+                                <img
+                                    onClick={() => setInputActivEdit(!activeInputEdit)}
+                                    className='edit-img__name'
+                                    src="./icon/close.png"
+                                    alt="edit"
+                                    width={16} />
                             </div>
 
                     }
@@ -293,9 +324,7 @@ function Main() {
             <div className="text">
                 <p>Ми, що нижче підписались представники Замовника {name} , з однієї сторони, і представник Виконавця .</p>
                 <p>Приватний підприємець Севастьянов О.В, з другої сторони, склали справжній акт про те, що Виконавцем були проведені</p>
-                <p>наступні роботи (надання таких послуг) за рахунком №{count} від "{day}" {month} {year}
-
-                    р.:
+                <p>наступні роботи (надання таких послуг) за рахунком №{count} від "{day}" {month} {year}р.:
                     <br />
                     <input onChange={(e) => setCount(e.target.value)} value={count} className='count' type="text" />
                     <input onChange={(e) => setDay(e.target.value)} value={day} className='data' type="text" />
@@ -384,4 +413,4 @@ function Main() {
 
 
 
-export default Main;
+export default Act;
