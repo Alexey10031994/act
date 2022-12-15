@@ -62,7 +62,7 @@ select {
     position: relative;
     padding-right: 20mm;
 
-    width: 140px;
+    width: 250px;
     height: 100px;
 
 }
@@ -411,6 +411,8 @@ select {
     }
 
     .btn {
+
+
         display: block;
         margin: 0 auto;
         margin-bottom: 30px;
@@ -423,6 +425,9 @@ select {
 
 
     @media print {
+
+     
+
         p {
             margin: 0;
             padding: 0;

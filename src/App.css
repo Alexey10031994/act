@@ -56,12 +56,18 @@
   }
 }
 
+
 @media print {
+
+
 
   .vertical-a4 {
     margin-bottom: 0mm;
     border-radius: 0;
+
+
   }
+
 
   /* .vertical-a4 {
     margin: 0 auto;
