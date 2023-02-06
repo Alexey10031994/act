@@ -216,7 +216,7 @@ function Act() {
     }
     // useEffect(() => {
     // }, [names])
-    
+
     const addItemToArrNames = () => {
         let newId = names[names.length - 1].id + 1;
         console.log(newId);
@@ -392,7 +392,7 @@ function Act() {
                     <p>Від Виконавця:</p>
                     <br />
                     <p>____________________________</p>
-                    <p>"{day}" {month} {year}</p>
+                    <p>"{day}" {month} {year} р.</p>
                     <p>Приватний підприємець</p>
                     <p>Севастьянов О.В.</p>
                 </div>
@@ -400,7 +400,7 @@ function Act() {
                     <p>Від Замовника:</p>
                     <br />
                     <p>____________________________</p>
-                    <p>"{day}" {month} {year}</p>
+                    <p>"{day}" {month} {year} р.</p>
                     <p>{name}</p>
                 </div>
 
