@@ -33,6 +33,39 @@ select {
     font-size: 12px;
 }
 
+.title-act {
+    width: 100%;
+
+    position: relative;
+}
+
+.title-act .title-act__count {
+    position: absolute;
+    top: 0px;
+    left: 500px;
+    font-weight: 400;
+}
+
+.title-act .title-act__btn {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    transition: opacity 1s ease;
+
+
+}
+
+
+
+
+
 .head {
     margin-bottom: 20px;
 }
@@ -201,6 +234,8 @@ select {
 
 
 @media print {
+
+
     select {
         -moz-appearance: none;
         -webkit-appearance: none;
@@ -226,6 +261,10 @@ select {
     input {
         border: unset;
 
+    }
+
+    .title-act .title-act__btn {
+        display: none;
     }
 
     .count {
@@ -426,7 +465,7 @@ select {
 
     @media print {
 
-     
+
 
         p {
             margin: 0;

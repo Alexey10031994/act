@@ -42,6 +42,7 @@ function Act() {
 
   const [items, setItems] = useState([]);
   const [text, setText] = useState(``);
+  const [toggleCount, setToggleCount] = useState(false);
 
   const numberInString = (numberPrice1) => {
     if (
@@ -305,6 +306,10 @@ function Act() {
     }
   };
 
+  const clickToggle = () => {
+    setToggleCount(!toggleCount);
+  };
+
   return (
     <>
       <div className="flex">
@@ -379,8 +384,18 @@ function Act() {
         </div>
       </div>
 
-      <h1>АКТ здачі-прийняття робіт</h1>
-      <h1>(надання послуг)</h1>
+      <div className="title-act">
+        <h1>АКТ здачі-прийняття робіт</h1>
+        <h1>(надання послуг)</h1>
+        <h1 className="title-act__count">{toggleCount && `№${count}`}</h1>
+        <button className="title-act__btn">
+          {toggleCount ? (
+            <img onClick={clickToggle} src="./icon/on.png" height={15} />
+          ) : (
+            <img onClick={clickToggle} src="./icon/off.png" height={15} />
+          )}
+        </button>
+      </div>
 
       <div className="text">
         <p>
