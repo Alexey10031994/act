@@ -339,6 +339,7 @@ function Act() {
                   </option>
                 ))}
               </select>
+              <p className="test">{name}</p>
               <img
                 onClick={() => removeItemInArrNames(name)}
                 src="./icon/delete.png"
@@ -362,6 +363,7 @@ function Act() {
                 onChange={(e) => setName(e.target.value)}
                 value={name}
               />
+              <p className="test">{name}</p>
               <img
                 onClick={() => addItemToArrNames(name)}
                 src="./icon/accept.png"

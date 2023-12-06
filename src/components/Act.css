@@ -188,6 +188,10 @@ select {
     border-width: 1px;
 }
 
+.test {
+    display: none;
+}
+
 .edit-img__name {
     position: absolute;
     right: -74px;
@@ -308,7 +312,14 @@ select {
         display: none;
     }
 
+    .test {
+        display: block;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
     .name {
+        display: none;
         text-align: left;
     }
 }
