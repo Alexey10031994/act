@@ -9,7 +9,23 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 
 export const MyContext = createContext("");
 
+let months = [
+  "Січня",
+  "Лютого",
+  "Березня",
+  "Квітня",
+  "Травня",
+  "Червня",
+  "Липня",
+  "Серпня",
+  "Вересня",
+  "Жовтня",
+  "Листопада",
+  "Грудня",
+];
+
 function App() {
+  const currentDate = new Date();
   //hi
   const [tab, setTab] = useState(true);
   const [order, setOrder] = useState([]);
@@ -19,9 +35,9 @@ function App() {
 
   const [price1, setPrice1] = useState(0);
   const [price2, setPrice2] = useState("00");
-  const [day, setDay] = useState(1);
-  const [month, setMonth] = useState("Січня");
-  const [year, setYear] = useState(2023);
+  const [day, setDay] = useState(currentDate.getDate());
+  const [month, setMonth] = useState(months[currentDate.getMonth()]);
+  const [year, setYear] = useState(currentDate.getFullYear());
   const [nav, setNav] = useState("м.Дніпро");
 
   const [activeEdit, setActivEdit] = useState(true);
@@ -44,21 +60,6 @@ function App() {
     ],
     "order"
   );
-
-  let months = [
-    "Січня",
-    "Лютого",
-    "Березня",
-    "Квітня",
-    "Травня",
-    "Червня",
-    "Липня",
-    "Серпня",
-    "Вересня",
-    "Жовтня",
-    "Листопада",
-    "Грудня",
-  ];
 
   // const addItemToArrNames = () => {
   //   let newId = names[names.length - 1].id + 1;
